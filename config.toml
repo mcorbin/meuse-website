@@ -1,0 +1,7 @@
+baseURL = "https://meuse.mcorbin.fr"
+languageCode = "en-us"
+title = "Meuse, a free private Rust Registry"
+theme = "learn"
+
+[params]
+  themeVariant = "green"
