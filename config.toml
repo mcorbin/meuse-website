@@ -5,3 +5,20 @@ theme = "learn"
 
 [params]
   themeVariant = "green"
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/mcorbin/meuse"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fab fa-github'></i> Github repo"
+identifier = "ds"
+url = "https://github.com/mcorbin/meuse"
+weight = 10
+
+[[menu.shortcuts]]
+name = "<i class='fas fa-bookmark'></i> Site theme"
+identifier = "learntheme"
+url = "https://github.com/matcornic/hugo-theme-learn/"
+weight = 20
