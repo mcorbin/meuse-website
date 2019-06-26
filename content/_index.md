@@ -6,5 +6,5 @@ It implements the [alternative registries](https://github.com/rust-lang/rfcs/blo
 
 Meuse is currently in alpha, and is not ready for production use. Things will break !
 
-![Meuse](meuse.png)
+![Meuse](meuse.jpg)
 <center>The Meuse county and river in France, where the troubles of the modern world disappear.</center>
