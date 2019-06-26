@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>API :: Meuse, a free private Rust Registry</title>
+
+    
+    <link href="/css/nucleus.css?1561551664" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1561551664" rel="stylesheet">
+    <link href="/css/hybrid.css?1561551664" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1561551664" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1561551664" rel="stylesheet">
+    <link href="/css/auto-complete.css?1561551664" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1561551664" rel="stylesheet">
+    <link href="/css/theme.css?1561551664" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1561551664" rel="stylesheet">
+    
+      <link href="/css/theme-green.css?1561551664" rel="stylesheet">
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1561551664"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/api/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="https://meuse.mcorbin.fr">
+  <h2>Meuse</p>
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1561551664"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1561551664"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/meuse.mcorbin.fr";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1561551664"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/" title="Installation" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/installation/">
+          Installation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/requirements/" title="Requirements" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/installation/requirements/">
+          Requirements
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/get-meuse/" title="Get or build Meuse" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/installation/get-meuse/">
+          Get or build Meuse
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/configuration/" title="Configuration" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/installation/configuration/">
+          Configuration
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/installation/launch-it/" title="Launch it" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/installation/launch-it/">
+          Launch it
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/api/" title="API" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/api/">
+          API
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/api/token/" title="Token" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/token/">
+          Token
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/api/user/" title="User and role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/user/">
+          User and role
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/api/category/" title="Category" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/category/">
+          Category
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/api/crate/" title="Crate" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/crate/">
+          Crate
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/community/" title="Community" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/community/">
+          Community
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/community/how-to-contribute/" title="How to contribute" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/community/how-to-contribute/">
+          How to contribute
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/community/support/" title="Support" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/community/support/">
+          Support
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/roadmap/" title="Roadmap" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/roadmap/">
+          Roadmap
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <b><p>Powered by <a href="https://mcorbin.fr">mcorbin.fr</a></p></b>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/'></a> > API
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+          <div id="chapter">
+        
+        <div id="body-inner">
+          
+
+        
+
+
+
+
+	
+
+<h1 id="api">API</h1>
+
+<p>The Meuse API, with examples.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+            </div> 
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/installation/launch-it/" title="Launch it"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/api/token/" title="Token" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1561551664"></script>
+    <script src="/js/perfect-scrollbar.min.js?1561551664"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1561551664"></script>
+    <script src="/js/jquery.sticky.js?1561551664"></script>
+    <script src="/js/featherlight.min.js?1561551664"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1561551664"></script>
+    <script src="/js/highlight.pack.js?1561551664"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1561551664"></script>
+    <script src="/js/learn.js?1561551664"></script>
+    <script src="/js/hugo-learn.js?1561551664"></script>
+
+    <link href="/mermaid/mermaid.css?1561551664" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1561551664"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
