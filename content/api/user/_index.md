@@ -9,15 +9,11 @@ disableToc: false
 In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, and it's not possible to create new roles:
 
 - `admin`: An admin can do anything (except creating tokens for another user).
-- `tech`: A tech cannot:
-  * create users
-  * delete users
-  * delete tokens for another users
-  * create new categories
+- `tech`: Some calls are not allowed for tech users. Some parameters are also only usable by an admin account.
 
 ## Users
 
-**Create a new user**
+### Create a new user  - Admin only
 
 - **POST** /api/v1/meuse/user
 
@@ -30,7 +26,7 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 | role    |  string | The user role. Should be `admin` or `tech` |
 
 ```
- curl --header "Content-Type: application/json"  --request POST \
+ curl --header "Content-Type: application/json" --request POST \
 -H "Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=" \
 --data '{"active":true,"description":"new user","name":"newuser","password":"securepassword","role":"tech"}' \
  localhost:8855/api/v1/meuse/user
@@ -38,14 +34,58 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 {"ok":true}
 ```
 
-**Delete an user**
+### Update an user
+
+An user can update its own accout, but only an `admin` can update another account.
+
+- **POST** /api/v1/meuse/user/`<user_name>`
+
+| Field | Type | Description |
+| ------ | ----------- | ----------- |
+| active    | boolean | Initial status of the user. **Admin only** |
+| description | string | The description of the user. |
+| password | string | The user password. It should have at least 8 characters. |
+| role    |  string | The user role. Should be `admin` or `tech`. **Admin only** |
+
+```
+ curl --header "Content-Type: application/json" --request POST \
+-H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
+--data '{"description":"updated user","password":"securepassword"}' \
+ localhost:8855/api/v1/meuse/user/root_user
+
+{"ok":true}
+```
+
+### Delete an user - Admin only
 
 - **DELETE** /api/v1/meuse/user/`<user_name>`
 
 ```
- curl --header "Content-Type: application/json"  --request DELETE \
+ curl --header "Content-Type: application/json" --request DELETE \
 -H "Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=" \
  localhost:8855/api/v1/meuse/user/newuser
 
 {"ok":true}
+```
+
+### List users - Admin only
+
+- **GET** /api/v1/meuse/user
+
+```
+ curl --header "Content-Type: application/json" \
+-H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
+ localhost:8855/api/v1/meuse/user
+
+{
+  "users": [
+    {
+      "id": "f3e6888e-97f9-11e9-ae4e-ef296f05cd17",
+      "name": "root_user",
+      "description": "updated user",
+      "active": true,
+      "role": "admin"
+    }
+  ]
+}
 ```
