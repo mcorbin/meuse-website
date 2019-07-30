@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="generator" content="Hugo 0.56.2" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Category :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1561707378" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1561707378" rel="stylesheet">
-    <link href="/css/hybrid.css?1561707378" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1561707378" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1561707378" rel="stylesheet">
-    <link href="/css/auto-complete.css?1561707378" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1561707378" rel="stylesheet">
-    <link href="/css/theme.css?1561707378" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1561707378" rel="stylesheet">
+    <link href="/css/nucleus.css?1564523448" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1564523448" rel="stylesheet">
+    <link href="/css/hybrid.css?1564523448" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1564523448" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1564523448" rel="stylesheet">
+    <link href="/css/auto-complete.css?1564523448" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1564523448" rel="stylesheet">
+    <link href="/css/theme.css?1564523448" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1564523448" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1561707378" rel="stylesheet">
+      <link href="/css/theme-green.css?1564523448" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1561707378"></script>
+    <script src="/js/jquery-3.3.1.min.js?1564523448"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1561707378"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1561707378"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1564523448"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1564523448"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1561707378"></script>
+<script type="text/javascript" src="/js/search.js?1564523448"></script>
 
     
   </div>
@@ -306,6 +306,30 @@
  
   
     
+    <li data-nav-id="/api/check/" title="Check" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/check/">
+          Check
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/api/crate/" title="Crate" class="dd-item 
         
         
@@ -516,7 +540,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#categories">Categories</a></li>
+<li><a href="#categories">Categories</a>
+<ul>
+<li><a href="#create-a-new-category-admin-only">Create a new category - Admin only</a></li>
+<li><a href="#update-a-category-admin-only">Update a category - Admin only</a></li>
+<li><a href="#list-categories">List categories</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -548,7 +577,7 @@
 
 <h2 id="categories">Categories</h2>
 
-<p><strong>Create a new category</strong></p>
+<h3 id="create-a-new-category-admin-only">Create a new category - Admin only</h3>
 
 <ul>
 <li><strong>POST</strong> /api/v1/meuse/category</li>
@@ -585,6 +614,65 @@
 
 {&quot;ok&quot;:true}
 </code></pre>
+
+<h3 id="update-a-category-admin-only">Update a category - Admin only</h3>
+
+<ul>
+<li><strong>GET</strong> /api/v1/meuse/category/<code>&lt;category_name&gt;</code></li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>The description of the category.</td>
+</tr>
+
+<tr>
+<td>name</td>
+<td>string</td>
+<td>The category name.</td>
+</tr>
+</tbody>
+</table>
+
+<pre><code> curl --header &quot;Content-Type: application/json&quot;  --request POST \
+-H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
+--data '{&quot;description&quot;:&quot;system category&quot;,&quot;name&quot;:&quot;system&quot;}' \
+localhost:8855/api/v1/meuse/category/email
+
+{&quot;ok&quot;:true}
+</code></pre>
+
+<h3 id="list-categories">List categories</h3>
+
+<ul>
+<li><p><strong>GET</strong> /api/v1/meuse/category</p>
+
+<pre><code>curl --header &quot;Content-Type: application/json&quot;  \
+-H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
+localhost:8855/api/v1/meuse/category
+
+{
+&quot;categories&quot;: [
+{
+  &quot;id&quot;: &quot;4e9cbfcd-4f7e-46f1-a3ff-c9af7cc57137&quot;,
+  &quot;name&quot;: &quot;email&quot;,
+  &quot;description&quot;: &quot;email category&quot;
+}
+]
+}
+</code></pre></li>
+</ul>
 
 
 
@@ -792,6 +880,22 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -873,7 +977,7 @@
 			<a class="nav nav-prev" href="/api/user/" title="User and role"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api/crate/" title="Crate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api/check/" title="Check" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -883,20 +987,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1561707378"></script>
-    <script src="/js/perfect-scrollbar.min.js?1561707378"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1561707378"></script>
-    <script src="/js/jquery.sticky.js?1561707378"></script>
-    <script src="/js/featherlight.min.js?1561707378"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1561707378"></script>
-    <script src="/js/highlight.pack.js?1561707378"></script>
+    <script src="/js/clipboard.min.js?1564523448"></script>
+    <script src="/js/perfect-scrollbar.min.js?1564523448"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1564523448"></script>
+    <script src="/js/jquery.sticky.js?1564523448"></script>
+    <script src="/js/featherlight.min.js?1564523448"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1564523448"></script>
+    <script src="/js/highlight.pack.js?1564523448"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1561707378"></script>
-    <script src="/js/learn.js?1561707378"></script>
-    <script src="/js/hugo-learn.js?1561707378"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1564523448"></script>
+    <script src="/js/learn.js?1564523448"></script>
+    <script src="/js/hugo-learn.js?1564523448"></script>
 
-    <link href="/mermaid/mermaid.css?1561707378" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1561707378"></script>
+    <link href="/mermaid/mermaid.css?1564523448" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1564523448"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

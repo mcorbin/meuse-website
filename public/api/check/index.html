@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Tags :: Meuse, a free private Rust Registry</title>
+    <title>Check :: Meuse, a free private Rust Registry</title>
 
     
     <link href="/css/nucleus.css?1564523448" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tags/">
+  <body class="" data-url="/api/check/">
     <nav id="sidebar" class="">
 
 
@@ -208,7 +208,7 @@
   
     
     <li data-nav-id="/api/" title="API" class="dd-item 
-        
+        parent
         
         
         ">
@@ -307,8 +307,8 @@
   
     
     <li data-nav-id="/api/check/" title="Check" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api/check/">
@@ -515,7 +515,19 @@
                     
           
           
-            Tags
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/'></a> > <a href='/api/'>API</a> > Check
+          
+         
+          
+         
           
         
                  
@@ -524,7 +536,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#check">Check</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -540,7 +559,7 @@
           
             <h1>
               
-              Tags
+              Check
             </h1>
           
 
@@ -549,11 +568,46 @@
 
 
 
+	
 
+<h2 id="check">Check</h2>
+
+<p>Meuse maintains crates states in three places:</p>
 
 <ul>
-	
+<li>In the PostgreSQL database.</li>
+<li>In the Git repository which contains the crates metadata.</li>
+<li>In a directory which contains the crates binary files.</li>
 </ul>
+
+<p>In some cases, these three places could be out of sync.</p>
+
+<p>Meuse provides an APi call to detect these issues.</p>
+
+<ul>
+<li><p><strong>GET</strong> /api/v1/meuse/check</p>
+
+<pre><code>curl --header &quot;Content-Type: application/json&quot; \
+-H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
+localhost:8855/api/v1/meuse/check
+
+[
+{
+&quot;crate&quot;: &quot;test1&quot;,
+&quot;errors&quot;: [
+  &quot;metadata does not exist for version 0.1.0&quot;,
+  &quot;metata exists but not in the database for version 0.1.4&quot;,
+  &quot;crate binary file does not exist for version 0.1.1&quot;,
+  &quot;crate binary file does not exist for version 0.1.0&quot;
+]
+}
+]
+
+</code></pre></li>
+</ul>
+
+
+
 
 
 <footer class=" footline" >
@@ -676,6 +730,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -690,6 +745,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -739,6 +797,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -754,6 +813,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -844,8 +906,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/api/category/" title="Category"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/installation/" title="Installation" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/api/crate/" title="Crate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

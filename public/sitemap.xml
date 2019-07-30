@@ -43,6 +43,10 @@
   </url>
   
   <url>
+    <loc>https://meuse.mcorbin.fr/api/check/</loc>
+  </url>
+  
+  <url>
     <loc>https://meuse.mcorbin.fr/installation/get-meuse/</loc>
   </url>
   

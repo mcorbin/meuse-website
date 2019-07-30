@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.55.6" />
+    <meta name="generator" content="Hugo 0.56.2" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Token :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1561707378" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1561707378" rel="stylesheet">
-    <link href="/css/hybrid.css?1561707378" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1561707378" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1561707378" rel="stylesheet">
-    <link href="/css/auto-complete.css?1561707378" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1561707378" rel="stylesheet">
-    <link href="/css/theme.css?1561707378" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1561707378" rel="stylesheet">
+    <link href="/css/nucleus.css?1564523448" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1564523448" rel="stylesheet">
+    <link href="/css/hybrid.css?1564523448" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1564523448" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1564523448" rel="stylesheet">
+    <link href="/css/auto-complete.css?1564523448" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1564523448" rel="stylesheet">
+    <link href="/css/theme.css?1564523448" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1564523448" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1561707378" rel="stylesheet">
+      <link href="/css/theme-green.css?1564523448" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1561707378"></script>
+    <script src="/js/jquery-3.3.1.min.js?1564523448"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -54,14 +54,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1561707378"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1561707378"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1564523448"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1564523448"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1561707378"></script>
+<script type="text/javascript" src="/js/search.js?1564523448"></script>
 
     
   </div>
@@ -306,6 +306,30 @@
  
   
     
+    <li data-nav-id="/api/check/" title="Check" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/check/">
+          Check
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/api/crate/" title="Crate" class="dd-item 
         
         
@@ -516,7 +540,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#tokens">Tokens</a></li>
+<li><a href="#tokens">Tokens</a>
+<ul>
+<li><a href="#create-a-new-token">Create a new token</a></li>
+<li><a href="#delete-a-token">Delete a token</a></li>
+<li><a href="#list-tokens">List tokens</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -548,7 +577,7 @@
 
 <h2 id="tokens">Tokens</h2>
 
-<p><strong>Create a new token</strong></p>
+<h3 id="create-a-new-token">Create a new token</h3>
 
 <ul>
 <li><strong>POST</strong> /api/v1/meuse/user</li>
@@ -597,7 +626,9 @@ localhost:8855/api/v1/meuse/token
 {&quot;token&quot;:&quot;HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=&quot;}
 </code></pre>
 
-<p><strong>Delete a token</strong></p>
+<h3 id="delete-a-token">Delete a token</h3>
+
+<p>Users can delete their own tokens. An <code>admin</code> can delete tokens for other users.</p>
 
 <ul>
 <li><strong>DELETE</strong> /api/v1/meuse/token</li>
@@ -633,6 +664,30 @@ localhost:8855/api/v1/meuse/token
 localhost:8855/api/v1/meuse/token
 
 {&quot;ok&quot;:true}
+</code></pre>
+
+<h3 id="list-tokens">List tokens</h3>
+
+<ul>
+<li><strong>GET</strong> /api/v1/meuse/token</li>
+</ul>
+
+<p>Admin users can pass an <code>user</code> parameter in the request url (for example, <code>/api/v1/meuse/token?user=foo</code>) to list tokens for a specific user.</p>
+
+<pre><code> curl --header &quot;Content-Type: application/json&quot; \
+-H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
+ localhost:8855/api/v1/meuse/token
+
+{
+  &quot;tokens&quot;: [
+    {
+      &quot;id&quot;: &quot;b2978e5f-c312-4389-98eb-932ab1785265&quot;,
+      &quot;name&quot;: &quot;test_token&quot;,
+      &quot;created-at&quot;: &quot;2019-07-30T20:17:34Z&quot;,
+      &quot;expired-at&quot;: &quot;2019-08-09T20:17:34Z&quot;
+    }
+  ]
+}
 </code></pre>
 
 
@@ -838,6 +893,22 @@ localhost:8855/api/v1/meuse/token
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -929,20 +1000,20 @@ localhost:8855/api/v1/meuse/token
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1561707378"></script>
-    <script src="/js/perfect-scrollbar.min.js?1561707378"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1561707378"></script>
-    <script src="/js/jquery.sticky.js?1561707378"></script>
-    <script src="/js/featherlight.min.js?1561707378"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1561707378"></script>
-    <script src="/js/highlight.pack.js?1561707378"></script>
+    <script src="/js/clipboard.min.js?1564523448"></script>
+    <script src="/js/perfect-scrollbar.min.js?1564523448"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1564523448"></script>
+    <script src="/js/jquery.sticky.js?1564523448"></script>
+    <script src="/js/featherlight.min.js?1564523448"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1564523448"></script>
+    <script src="/js/highlight.pack.js?1564523448"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1561707378"></script>
-    <script src="/js/learn.js?1561707378"></script>
-    <script src="/js/hugo-learn.js?1561707378"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1564523448"></script>
+    <script src="/js/learn.js?1564523448"></script>
+    <script src="/js/hugo-learn.js?1564523448"></script>
 
-    <link href="/mermaid/mermaid.css?1561707378" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1561707378"></script>
+    <link href="/mermaid/mermaid.css?1564523448" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1564523448"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
