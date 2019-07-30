@@ -3,15 +3,19 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://meuse.mcorbin.fr/api/token/</loc>
+  </url>
+  
+  <url>
+    <loc>https://meuse.mcorbin.fr/api/crate/</loc>
+  </url>
+  
+  <url>
     <loc>https://meuse.mcorbin.fr/community/how-to-contribute/</loc>
   </url>
   
   <url>
     <loc>https://meuse.mcorbin.fr/installation/</loc>
-  </url>
-  
-  <url>
-    <loc>https://meuse.mcorbin.fr/api/token/</loc>
   </url>
   
   <url>
@@ -43,10 +47,6 @@
   </url>
   
   <url>
-    <loc>https://meuse.mcorbin.fr/api/check/</loc>
-  </url>
-  
-  <url>
     <loc>https://meuse.mcorbin.fr/installation/get-meuse/</loc>
   </url>
   
@@ -55,11 +55,11 @@
   </url>
   
   <url>
-    <loc>https://meuse.mcorbin.fr/api/crate/</loc>
+    <loc>https://meuse.mcorbin.fr/installation/launch-it/</loc>
   </url>
   
   <url>
-    <loc>https://meuse.mcorbin.fr/installation/launch-it/</loc>
+    <loc>https://meuse.mcorbin.fr/api/check/</loc>
   </url>
   
   <url>

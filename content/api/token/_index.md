@@ -1,6 +1,6 @@
 ---
 title: Token
-weight: 5
+weight: 1
 disableToc: false
 ---
 
