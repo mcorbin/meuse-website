@@ -13,3 +13,4 @@ This is what I plan to do
 - TLS support for the PostgreSQL client.
 - A tool to automatically import crates from `crates.io`, and maybe mirror `crates.io` in Meuse.
 - A CLI.
+- Store crates binary files on s3-compatible backends

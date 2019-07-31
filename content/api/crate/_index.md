@@ -64,7 +64,7 @@ curl --header "Content-Type: application/json" \
 ```
 curl --header "Content-Type: application/json" \
 -H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
- localhost:8855/api/v1/meuse/crate/test1
+localhost:8855/api/v1/meuse/crate/test1
 
 {
   "id": "85f38d54-31f1-4401-b00e-92ea032806da",
