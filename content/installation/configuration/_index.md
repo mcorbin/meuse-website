@@ -15,8 +15,20 @@ database:
   user: "meuse"
   # The database password
   password: "meuse"
-  # The database connection string
-  subname: "//127.0.0.1:5432/meuse"
+  # The database host
+  host: "127.0.0.1"
+  # The database port
+  port: 5432
+  # The database name
+  name: "meuse"
+  # optional: client certificates for tls connections
+  cacert: "/home/mathieu/Documents/meuse/ssl/ca.cer"
+  cert: "/home/mathieu/Documents/meuse/ssl/client.cer"
+  key: "/home/mathieu/Documents/meuse/ssl/client.key"
+  # optional: postgresql verify mode (default is "verify-full")
+  ssl-mode: "verify-ca"
+  # optional: connection pool size (default is 2)
+  max-pool-size: 3
 
 # The HTTP server configuration
 http:
@@ -24,6 +36,10 @@ http:
   address: 127.0.0.1
   # the port of the HTTP server
   port: 8855
+  # optional: server certificates for tls
+  cacert: "/home/mathieu/Documents/meuse/ssl/ca.cer"
+  cert: "/home/mathieu/Documents/meuse/ssl/client.cer"
+  key: "/home/mathieu/Documents/meuse/ssl/client.key"
 
 # The logging configuration
 # Meuse uses the unilog library for logging, you can check
@@ -33,7 +49,8 @@ logging:
   level: debug
   console: true
   overrides:
-    com.mchange.v2.c3p0: error
+    org.apache.http: error
+    io.netty.buffer.PoolThreadCache: error
 
 # The configuration of your Git index
 metadata:
