@@ -17,6 +17,8 @@ disableToc: false
 | user    | string | The user name. |
 | validity | int | The token will be valid for `validity` days. |
 
+---
+
 ```
 curl --header "Content-Type: application/json" --request POST \
 --data '{"name":"test_token","validity":10,"user":"root_user","password":"do_not_use_this_password"}' \
@@ -36,6 +38,8 @@ Users can delete their own tokens. An `admin` can delete tokens for other users.
 | name    | string | The name of the token. |
 | user    | string | The user name. |
 
+---
+
 ```
 curl --header "Content-Type: application/json" --request DELETE \
 -H "Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=" \
@@ -50,6 +54,8 @@ localhost:8855/api/v1/meuse/token
 - **GET** /api/v1/meuse/token
 
 Admin users can pass an `user` parameter in the request url (for example, `/api/v1/meuse/token?user=foo`) to list tokens for a specific user.
+
+---
 
 ```
  curl --header "Content-Type: application/json" \

@@ -33,6 +33,8 @@ Only owners of a crate can add or remove an owner.
 
 An optional `category` can be passed in the url (for example `/api/v1/meuse/crate?category=system`) to return only crates which belong to a category.
 
+---
+
 ```
 curl --header "Content-Type: application/json" \
 -H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
@@ -60,6 +62,8 @@ curl --header "Content-Type: application/json" \
 ### Get a crate
 
 - **GET** /api/v1/meuse/crate/`<crate_name>`
+
+---
 
 ```
 curl --header "Content-Type: application/json" \

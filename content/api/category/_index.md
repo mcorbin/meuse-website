@@ -15,6 +15,7 @@ disableToc: false
 | description | string | The description of the category. |
 | name    | string | The category name. |
 
+---
 
 ```
  curl --header "Content-Type: application/json"  --request POST \
@@ -34,6 +35,8 @@ disableToc: false
 | description | string | The description of the category. |
 | name    | string | The category name. |
 
+---
+
 ```
  curl --header "Content-Type: application/json"  --request POST \
 -H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
@@ -46,6 +49,8 @@ localhost:8855/api/v1/meuse/category/email
 ### List categories
 
 - **GET** /api/v1/meuse/category
+
+---
 
 ```
 curl --header "Content-Type: application/json"  \

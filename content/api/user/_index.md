@@ -25,6 +25,8 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 | password | string | The user password. It should have at least 8 characters. |
 | role    |  string | The user role. Should be `admin` or `tech` |
 
+---
+
 ```
  curl --header "Content-Type: application/json" --request POST \
 -H "Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=" \
@@ -47,6 +49,8 @@ An user can update its own accout, but only an `admin` can update another accoun
 | password | string | The user password. It should have at least 8 characters. |
 | role    |  string | The user role. Should be `admin` or `tech`. **Admin only** |
 
+---
+
 ```
  curl --header "Content-Type: application/json" --request POST \
 -H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \
@@ -60,6 +64,8 @@ An user can update its own accout, but only an `admin` can update another accoun
 
 - **DELETE** /api/v1/meuse/user/`<user_name>`
 
+---
+
 ```
  curl --header "Content-Type: application/json" --request DELETE \
 -H "Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=" \
@@ -71,6 +77,8 @@ An user can update its own accout, but only an `admin` can update another accoun
 ### List users - Admin only
 
 - **GET** /api/v1/meuse/user
+
+---
 
 ```
  curl --header "Content-Type: application/json" \

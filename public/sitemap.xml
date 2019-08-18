@@ -59,6 +59,10 @@
   </url>
   
   <url>
+    <loc>https://meuse.mcorbin.fr/installation/monitoring/</loc>
+  </url>
+  
+  <url>
     <loc>https://meuse.mcorbin.fr/api/check/</loc>
   </url>
   

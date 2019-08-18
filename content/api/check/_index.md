@@ -18,6 +18,8 @@ Meuse provides an APi call to detect these issues.
 
 - **GET** /api/v1/meuse/check
 
+---
+
 ```
 curl --header "Content-Type: application/json" \
 -H "Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=" \

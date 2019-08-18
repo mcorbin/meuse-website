@@ -5,6 +5,7 @@ theme = "learn"
 
 [params]
   themeVariant = "green"
+  disableInlineCopyToClipBoard = true
 [[menu.shortcuts]]
 name = "<i class='fab fa-github'></i> Github repo"
 identifier = "ds"
