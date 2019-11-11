@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Requirements :: Meuse, a free private Rust Registry</title>
+    <title>Mirroring :: Meuse, a free private Rust Registry</title>
 
     
     <link href="/css/nucleus.css?1573510560" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/installation/requirements/">
+  <body class="" data-url="/installation/mirroring/">
     <nav id="sidebar" class="">
 
 
@@ -109,8 +109,8 @@
   
     
     <li data-nav-id="/installation/requirements/" title="Requirements" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/installation/requirements/">
@@ -229,8 +229,8 @@
   
     
     <li data-nav-id="/installation/mirroring/" title="Mirroring" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/installation/mirroring/">
@@ -575,7 +575,7 @@
             
           
           
-            <a href='/'></a> > <a href='/installation/'>Installation</a> > Requirements
+            <a href='/'></a> > <a href='/installation/'>Installation</a> > Mirroring
           
          
           
@@ -592,9 +592,8 @@
 <ul>
 <li>
 <ul>
-<li><a href="#postgresql">PostgreSQL</a></li>
-<li><a href="#java">Java</a></li>
-<li><a href="#crate-index">Crate index</a></li>
+<li><a href="#create-a-crates-io-mirror">Create a crates.io mirror</a></li>
+<li><a href="#how-it-works">How it works</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -613,7 +612,7 @@
           
             <h1>
               
-              Requirements
+              Mirroring
             </h1>
           
 
@@ -624,23 +623,44 @@
 
 	
 
-<h2 id="postgresql">PostgreSQL</h2>
+<p>Meuse is able to mirror <code>crates.io</code>. Crates files will be downloaded from <code>crates.io</code> and cached by Meuse it its crate store.</p>
 
-<p>Meuse uses PostgreSQL. I run the tests using the version <code>11.4</code>, but Meuse may work with older versions.</p>
+<h2 id="create-a-crates-io-mirror">Create a crates.io mirror</h2>
 
-<p>Then, you should initialize the database with the SQL script available <a href="https://github.com/mcorbin/meuse/blob/master/dev/resources/sql/schema.sql">on github</a>.</p>
+<p><a href="https://gmjosack.github.io/posts/dissecting-cratesio-minimum-mirror/">This article</a> is a good start to understand how it&rsquo;s possible to mirror <code>crates.io</code>.</p>
 
-<p>You can also run the <a href="https://github.com/mcorbin/meuse/blob/master/postgres.sh">postgres.sh</a> which will launch a PostgreSQL Docker container with the schema already configured. Of course, don&rsquo;t use that in production ;)</p>
+<p>First, you should fork the <a href="https://github.com/rust-lang/crates.io-index">crates.io-index</a> Github project.</p>
 
-<h2 id="java">Java</h2>
+<p>Once it&rsquo;s done, you should clone it: <code>git clone git@github.com:mcorbin/crates.io-index.git</code></p>
 
-<p>Meuse is written in <a href="https://clojure.org/">Clojure</a>, you will then need Java on your computer/server to be able to run the jar.</p>
+<p>Then, edit the <code>config.json</code> file in the repository, and replace the <code>dl</code> and <code>api</code> keys by the Meuse URLs. For example:</p>
 
-<h2 id="crate-index">Crate index</h2>
+<pre><code class="language-json">{
+    &quot;dl&quot;: &quot;http://localhost:8855/api/v1/mirror&quot;,
+    &quot;api&quot;: &quot;http://localhost:8855&quot;
+}
+</code></pre>
 
-<p>As described in the Rust <a href="https://doc.rust-lang.org/nightly/cargo/reference/registries.html">registries documentation</a>, the crates metadata are stored in a Git repository.</p>
+<p>Then, edit your <code>~/.cargo/config</code> file, and add your mirror in it:</p>
 
-<p>This repository and the <code>git</code> command should be available in the machine running Meuse. The Meuse user should also be allowed to run git commands (push for example). You should for example add your SSH key in the SSH agent.</p>
+<pre><code>[registries.mirror]
+index = &quot;https://github.com/mcorbin/crates.io-index.git&quot;
+</code></pre>
+
+<p>Your mirror is now ready. You should now be able to use it in your <code>Cargo.toml</code> files, for example with:</p>
+
+<pre><code>libc = { version = &quot;0.2.64&quot;, registry = &quot;mirror&quot; }
+</code></pre>
+
+<p>Here, the crate <code>libc</code> will be downloaded from Meuse.</p>
+
+<h2 id="how-it-works">How it works</h2>
+
+<p>When Meuse receives requests on <code>/api/v1/mirror</code> to download crates, it will check if the crate file already exists in its store. If the file exists, Meuse will return it to the client.</p>
+
+<p>If not, the request is forwarded to <code>crates.io</code>, Meuse will download the crate file, cache it in its store and then return it to the client.</p>
+
+<p><img src="/cargo_mirror1.jpg" alt="Cargo mirroring schema" /></p>
 
 
 
@@ -697,23 +717,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -792,6 +795,23 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -799,6 +819,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -968,10 +991,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/installation/" title="Installation"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/installation/monitoring/" title="Monitoring"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/installation/get-meuse/" title="Get or build Meuse" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api/" title="API" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

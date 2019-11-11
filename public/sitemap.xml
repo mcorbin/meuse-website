@@ -67,6 +67,10 @@
   </url>
   
   <url>
+    <loc>https://meuse.mcorbin.fr/installation/mirroring/</loc>
+  </url>
+  
+  <url>
     <loc>https://meuse.mcorbin.fr/</loc>
     <priority>0</priority>
   </url>

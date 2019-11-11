@@ -63,8 +63,28 @@ metadata:
 
 # The crate binary files configuration
 crate:
+  # Meuse supports multiple backends for crate files.
+
+  #### filesystem backend:
+
+  store: filesystem
   # The local path of your crate files
   path: "/home/mathieu/prog/rust/crates"
+
+  #### S3-compatible storage backend:
+
+  store: s3
+
+  # s3 credentials
+  access-key: your-access-key
+  secret-key: your-secret-key
+
+  # s3 endpoint
+  endpoint: s3-endpoint
+
+  # The bucket which will be used to store the files
+  bucket: bucket-name
+
 ```
 
 ## Configure Cargo
@@ -75,7 +95,7 @@ In `.cargo/config`, you should configure the URL of your registry index. For exa
 
 ```
 [registries.custom]
-index = "https://github.com/mcorbin/testregistry.git"
+index = "https://github.com/mcorbin/testregistry"
 ```
 
 ### Index configuration

@@ -2,9 +2,11 @@
 
 Meuse is a registry implementation for the [Rust](https://www.rust-lang.org) programming language.
 
-It implements the [alternative registries](https://github.com/rust-lang/rfcs/blob/master/text/2141-alternative-registries.md) RFC and also exposes an API to manage users, tokens and categories.
+It implements the [alternative registries](https://github.com/rust-lang/rfcs/blob/master/text/2141-alternative-registries.md) RFC and also exposes an API to manage users, tokens and categories. Meuse can store its crates binary files in various backends (filesystem, s3).
 
-Meuse is currently in alpha, and is not ready for production use. Things will break !
+It can also be used as a mirror for `crates.io`.
+
+The project is open source, and the code can be found on [GitHub](https://github.com/mcorbin/meuse)
 
 ![Meuse](meuse.jpg)
 <center>The Meuse county and river in France, where the troubles of the modern world disappear.</center>
