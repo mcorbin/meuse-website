@@ -12,7 +12,7 @@ Meuse is able to mirror `crates.io`. Crates files will be downloaded from `crate
 
 First, you should fork the [crates.io-index](https://github.com/rust-lang/crates.io-index) Github project.
 
-Once it's done, you should clone it: `git clone git@github.com:mcorbin/crates.io-index.git`
+Once it's done, you should clone your fork: `git clone git@github.com:mcorbin/crates.io-index.git`
 
 Then, edit the `config.json` file in the repository, and replace the `dl` and `api` keys by the Meuse URLs. For example:
 
@@ -36,13 +36,13 @@ Your mirror is now ready. You should now be able to use it in your `Cargo.toml` 
 libc = { version = "0.2.64", registry = "mirror" }
 ```
 
-Here, the crate `libc` will be downloaded from Meuse.
+Here, the crate `libc` will be downloaded from the mirror exposed by Meuse.
 
 ## How it works
 
-When Meuse receives requests on `/api/v1/mirror` to download crates, it will check if the crate file already exists in its store. If the file exists, Meuse will return it to the client.
+When Meuse receives a request on `/api/v1/mirror` to download a crate, it will check if the crate file already exists in its store. If the file exists, Meuse will return it to the client.
 
-If not, the request is forwarded to `crates.io`, Meuse will download the crate file, cache it in its store and then return it to the client.
+If not, the request is forwarded to `crates.io`. Meuse will download the crate file, cache it in its store and then return it to the client.
 
 ![Cargo mirroring schema](/cargo_mirror1.jpg)
 
