@@ -12,20 +12,20 @@
     <title>Crate :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1573511320" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1573511320" rel="stylesheet">
-    <link href="/css/hybrid.css?1573511320" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1573511320" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1573511320" rel="stylesheet">
-    <link href="/css/auto-complete.css?1573511320" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1573511320" rel="stylesheet">
-    <link href="/css/theme.css?1573511320" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1573511320" rel="stylesheet">
+    <link href="/css/nucleus.css?1575818700" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1575818700" rel="stylesheet">
+    <link href="/css/hybrid.css?1575818700" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1575818700" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1575818700" rel="stylesheet">
+    <link href="/css/auto-complete.css?1575818700" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1575818700" rel="stylesheet">
+    <link href="/css/theme.css?1575818700" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1575818700" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1573511320" rel="stylesheet">
+      <link href="/css/theme-green.css?1575818700" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1573511320"></script>
+    <script src="/js/jquery-3.3.1.min.js?1575818700"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1573511320"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1573511320"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1575818700"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1575818700"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1573511320"></script>
+<script type="text/javascript" src="/js/search.js?1575818700"></script>
 
     
   </div>
@@ -310,6 +310,30 @@
  
   
     
+    <li data-nav-id="/api/cargo/" title="Cargo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/cargo/">
+          Cargo
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
     <li data-nav-id="/api/crate/" title="Crate" class="dd-item 
         parent
         active
@@ -389,6 +413,30 @@
         ">
       <a href="/api/check/">
           Check
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/api/statistics/" title="Statistics" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/api/statistics/">
+          Statistics
           
       </a>
       
@@ -592,12 +640,6 @@
 <ul>
 <li>
 <ul>
-<li><a href="#the-cargo-crate-api">The Cargo/Crate API</a>
-<ul>
-<li><a href="#cargo-publish">Cargo publish</a></li>
-<li><a href="#cargo-yank">Cargo yank</a></li>
-<li><a href="#cargo-owner">Cargo owner</a></li>
-</ul></li>
 <li><a href="#the-meuse-api">The Meuse API</a>
 <ul>
 <li><a href="#list-crates">List crates</a></li>
@@ -632,29 +674,6 @@
 
 	
 
-<h2 id="the-cargo-crate-api">The Cargo/Crate API</h2>
-
-<p>You can interact with Meuse using Cargo (exactly like <code>crates.io</code>).</p>
-
-<p>The commands <code>cargo publish</code>, <code>cargo yank</code>, <code>cargo owner</code>, <code>cargo search</code> should work with Meuse.</p>
-
-<p>Cargo can also fetches dependencies from Meuse if you configure the <code>registry</code> option for your dependency.</p>
-
-<h3 id="cargo-publish">Cargo publish</h3>
-
-<ul>
-<li>The command will fail if a category does not exist.</li>
-<li>An <code>admin</code> or <code>tech</code> user can publish a <code>new</code> create. In that case, the user will automatically own the crate. If an user try to publish a new <code>version</code> of a crate without being an owner, the command will fail.</li>
-</ul>
-
-<h3 id="cargo-yank">Cargo yank</h3>
-
-<p>Only owners of a crate can use this command.</p>
-
-<h3 id="cargo-owner">Cargo owner</h3>
-
-<p>Only owners of a crate can add or remove an owner.</p>
-
 <h2 id="the-meuse-api">The Meuse API</h2>
 
 <h3 id="list-crates">List crates</h3>
@@ -682,7 +701,8 @@
           &quot;description&quot;: null,
           &quot;yanked&quot;: false,
           &quot;created-at&quot;: &quot;2019-07-30T21:20:58Z&quot;,
-          &quot;updated-at&quot;: &quot;2019-07-30T21:20:58Z&quot;
+          &quot;updated-at&quot;: &quot;2019-07-30T21:20:58Z&quot;,
+          &quot;download-count&quot;: 0
         }
       ]
     }
@@ -711,14 +731,16 @@ localhost:8855/api/v1/meuse/crate/test1
       &quot;description&quot;: null,
       &quot;yanked&quot;: false,
       &quot;created-at&quot;: &quot;2019-07-30T21:20:58Z&quot;,
-      &quot;updated-at&quot;: &quot;2019-07-30T21:20:58Z&quot;
+      &quot;updated-at&quot;: &quot;2019-07-30T21:20:58Z&quot;,
+      &quot;download-count&quot;: 0
     },
     {
       &quot;version&quot;: &quot;0.1.1&quot;,
       &quot;description&quot;: null,
       &quot;yanked&quot;: false,
       &quot;created-at&quot;: &quot;2019-07-30T21:24:00Z&quot;,
-      &quot;updated-at&quot;: &quot;2019-07-30T21:24:00Z&quot;
+      &quot;updated-at&quot;: &quot;2019-07-30T21:24:00Z&quot;,
+      &quot;download-count&quot;: 0
     }
   ],
   &quot;categories&quot;: [
@@ -922,6 +944,22 @@ localhost:8855/api/v1/meuse/crate/test1
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -941,6 +979,22 @@ localhost:8855/api/v1/meuse/crate/test1
                     
                         
                         
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -1063,7 +1117,7 @@ localhost:8855/api/v1/meuse/crate/test1
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api/token/" title="Token"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api/cargo/" title="Cargo"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/api/user/" title="User and role" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1076,20 +1130,20 @@ localhost:8855/api/v1/meuse/crate/test1
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1573511320"></script>
-    <script src="/js/perfect-scrollbar.min.js?1573511320"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1573511320"></script>
-    <script src="/js/jquery.sticky.js?1573511320"></script>
-    <script src="/js/featherlight.min.js?1573511320"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1573511320"></script>
-    <script src="/js/highlight.pack.js?1573511320"></script>
+    <script src="/js/clipboard.min.js?1575818700"></script>
+    <script src="/js/perfect-scrollbar.min.js?1575818700"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1575818700"></script>
+    <script src="/js/jquery.sticky.js?1575818700"></script>
+    <script src="/js/featherlight.min.js?1575818700"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1575818700"></script>
+    <script src="/js/highlight.pack.js?1575818700"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1573511320"></script>
-    <script src="/js/learn.js?1573511320"></script>
-    <script src="/js/hugo-learn.js?1573511320"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1575818700"></script>
+    <script src="/js/learn.js?1575818700"></script>
+    <script src="/js/hugo-learn.js?1575818700"></script>
 
-    <link href="/mermaid/mermaid.css?1573511320" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1573511320"></script>
+    <link href="/mermaid/mermaid.css?1575818700" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1575818700"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

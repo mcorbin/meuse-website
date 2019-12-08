@@ -10,6 +10,8 @@ In order to use Meuse, the `MEUSE_CONFIGURATION` variable should contain the pat
 
 ## From the Jar
 
+The jars files are available on [Github](https://github.com/mcorbin/meuse/releases). The jars are built using OpenJDK 11.
+
 ```
 java -jar meuse.jar
 ```

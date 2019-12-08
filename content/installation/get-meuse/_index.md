@@ -10,4 +10,6 @@ You can download a release from [Github](https://github.com/mcorbin/meuse/releas
 
 ## Build Meuse
 
-In order to build Meuse, you need to install [Leiningen](https://leiningen.org/). Then, clone the Meuse repository and execute `lein uberjar`. The resulting jar will be `target/uberjar/meuse-<version>-standalone.jar`.
+In order to build Meuse, you need to install [Leiningen](https://leiningen.org/). You should also set the environment variable `LEIN_SNAPSHOTS_IN_RELEASE` to `true`.
+
+Then, clone the Meuse repository and execute `lein uberjar`. The resulting jar will be `target/uberjar/meuse-<version>-standalone.jar`.

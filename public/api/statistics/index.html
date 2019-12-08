@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Support :: Meuse, a free private Rust Registry</title>
+    <title>Statistics :: Meuse, a free private Rust Registry</title>
 
     
     <link href="/css/nucleus.css?1575818700" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/community/support/">
+  <body class="" data-url="/api/statistics/">
     <nav id="sidebar" class="">
 
 
@@ -260,7 +260,7 @@
   
     
     <li data-nav-id="/api/" title="API" class="dd-item 
-        
+        parent
         
         
         ">
@@ -431,8 +431,8 @@
   
     
     <li data-nav-id="/api/statistics/" title="Statistics" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api/statistics/">
@@ -462,7 +462,7 @@
   
     
     <li data-nav-id="/community/" title="Community" class="dd-item 
-        parent
+        
         
         
         ">
@@ -513,8 +513,8 @@
   
     
     <li data-nav-id="/community/support/" title="Support" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/community/support/">
@@ -623,7 +623,7 @@
             
           
           
-            <a href='/'></a> > <a href='/community/'>Community</a> > Support
+            <a href='/'></a> > <a href='/api/'>API</a> > Statistics
           
          
           
@@ -640,7 +640,7 @@
 <ul>
 <li>
 <ul>
-<li><a href="#support">Support</a></li>
+<li><a href="#statistics">Statistics</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -659,7 +659,7 @@
           
             <h1>
               
-              Support
+              Statistics
             </h1>
           
 
@@ -670,9 +670,26 @@
 
 	
 
-<h2 id="support">Support</h2>
+<h2 id="statistics">Statistics</h2>
 
-<p>If you need help, please open issues on <a href="https://github.com/mcorbin/meuse">Github</a>.</p>
+<p>You can gather some statistics about Meuse with the following call.</p>
+
+<ul>
+<li><p><strong>GET</strong> /api/v1/meuse/statistics</p>
+
+<pre><code>curl --header &quot;Content-Type: application/json&quot; \
+-H &quot;Authorization: APGr3C8LrbyzNMUyO1A+4ARnFWCRg41/ZFIR/yl1hKUnL4Z8Khdbb30h/GOblwW1++g=&quot; \
+localhost:8855/api/v1/meuse/statistics
+
+{
+&quot;crates&quot;: 0,
+&quot;crates-versions&quot;: 0,
+&quot;downloads&quot;: 0,
+&quot;users&quot;: 1
+}
+
+</code></pre></li>
+</ul>
 
 
 
@@ -830,6 +847,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -839,6 +857,25 @@
                     
                     
 
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
                         
             
@@ -925,6 +962,44 @@
             
                 
                     
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
                 
                 
 
@@ -959,64 +1034,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1038,10 +1055,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/community/how-to-contribute/" title="How to contribute"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api/check/" title="Check"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/roadmap/" title="Roadmap" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/community/" title="Community" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

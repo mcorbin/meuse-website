@@ -7,6 +7,10 @@
   </url>
   
   <url>
+    <loc>https://meuse.mcorbin.fr/api/cargo/</loc>
+  </url>
+  
+  <url>
     <loc>https://meuse.mcorbin.fr/api/crate/</loc>
   </url>
   
@@ -68,6 +72,10 @@
   
   <url>
     <loc>https://meuse.mcorbin.fr/installation/mirroring/</loc>
+  </url>
+  
+  <url>
+    <loc>https://meuse.mcorbin.fr/api/statistics/</loc>
   </url>
   
   <url>

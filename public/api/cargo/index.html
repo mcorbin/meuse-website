@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Support :: Meuse, a free private Rust Registry</title>
+    <title>Cargo :: Meuse, a free private Rust Registry</title>
 
     
     <link href="/css/nucleus.css?1575818700" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/community/support/">
+  <body class="" data-url="/api/cargo/">
     <nav id="sidebar" class="">
 
 
@@ -260,7 +260,7 @@
   
     
     <li data-nav-id="/api/" title="API" class="dd-item 
-        
+        parent
         
         
         ">
@@ -311,8 +311,8 @@
   
     
     <li data-nav-id="/api/cargo/" title="Cargo" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api/cargo/">
@@ -462,7 +462,7 @@
   
     
     <li data-nav-id="/community/" title="Community" class="dd-item 
-        parent
+        
         
         
         ">
@@ -513,8 +513,8 @@
   
     
     <li data-nav-id="/community/support/" title="Support" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/community/support/">
@@ -623,7 +623,7 @@
             
           
           
-            <a href='/'></a> > <a href='/community/'>Community</a> > Support
+            <a href='/'></a> > <a href='/api/'>API</a> > Cargo
           
          
           
@@ -640,7 +640,12 @@
 <ul>
 <li>
 <ul>
-<li><a href="#support">Support</a></li>
+<li><a href="#the-cargo-api">The Cargo API</a>
+<ul>
+<li><a href="#cargo-publish">Cargo publish</a></li>
+<li><a href="#cargo-yank">Cargo yank</a></li>
+<li><a href="#cargo-owner">Cargo owner</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -659,7 +664,7 @@
           
             <h1>
               
-              Support
+              Cargo
             </h1>
           
 
@@ -670,9 +675,28 @@
 
 	
 
-<h2 id="support">Support</h2>
+<h2 id="the-cargo-api">The Cargo API</h2>
 
-<p>If you need help, please open issues on <a href="https://github.com/mcorbin/meuse">Github</a>.</p>
+<p>You can interact with Meuse using Cargo (exactly like <code>crates.io</code>). Meuse fully implements the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2141-alte">alternative registries</a> RFC and <a href="https://doc.rust-lang.org/cargo/reference/registries.html">API</a>.</p>
+
+<p>The commands <code>cargo publish</code>, <code>cargo yank</code>, <code>cargo owner</code>, <code>cargo search</code> should work with Meuse.</p>
+
+<p>Cargo can also fetches dependencies from Meuse if you configure the <code>registry</code> option for your dependency.</p>
+
+<h3 id="cargo-publish">Cargo publish</h3>
+
+<ul>
+<li>The command will fail if a category does not exist.</li>
+<li>An <code>admin</code> or <code>tech</code> user can publish a <code>new</code> create. In that case, the user will automatically own the crate. If an user try to publish a new <code>version</code> of a crate without being an owner, the command will fail.</li>
+</ul>
+
+<h3 id="cargo-yank">Cargo yank</h3>
+
+<p>Only owners of a crate can use this command.</p>
+
+<h3 id="cargo-owner">Cargo owner</h3>
+
+<p>Only owners of a crate can add or remove an owner.</p>
 
 
 
@@ -830,6 +854,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -844,6 +869,45 @@
             
             
                 
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -920,6 +984,24 @@
             
         
                     
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
                         
             
             
@@ -959,64 +1041,6 @@
             
             
                 
-                    
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
                     
                 
                 
@@ -1038,10 +1062,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/community/how-to-contribute/" title="How to contribute"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api/token/" title="Token"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/roadmap/" title="Roadmap" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api/crate/" title="Crate" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

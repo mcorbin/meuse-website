@@ -10,11 +10,11 @@ Meuse uses PostgreSQL. I run the tests using the version `11.4`, but Meuse may w
 
 Then, you should initialize the database with the SQL script available [on github](https://github.com/mcorbin/meuse/blob/master/dev/resources/sql/schema.sql).
 
-You can also run the [postgres.sh](https://github.com/mcorbin/meuse/blob/master/postgres.sh) which will launch a PostgreSQL Docker container with the schema already configured. Of course, don't use that in production ;)
+You can also run the [postgres.sh](https://github.com/mcorbin/meuse/blob/master/postgres.sh) which will launch a PostgreSQL Docker container. Of course, don't use that in production ;)
 
 ## Java
 
-Meuse is written in [Clojure](https://clojure.org/), you will then need Java on your computer/server to be able to run the jar.
+Meuse is written in [Clojure](https://clojure.org/), you will then need Java on your computer/server to be able to run the jar. I develop Meuse/do all my tests using `OpenJDK 11`.
 
 ## Crate index
 
