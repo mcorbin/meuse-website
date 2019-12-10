@@ -8,7 +8,7 @@ disableToc: false
 
 ### Create a new token
 
-- **POST** /api/v1/meuse/user
+- **POST** /api/v1/meuse/token
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
