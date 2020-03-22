@@ -4,11 +4,10 @@ weight: 5
 disableToc: false
 ---
 
-## The Meuse API
-
 ### List crates
 
 - **GET** /api/v1/meuse/crate
+- Allowed users: `admin`, `tech`, `read-only`
 
 An optional `category` can be passed in the url (for example `/api/v1/meuse/crate?category=system`) to return only crates which belong to a category.
 
@@ -42,6 +41,7 @@ curl --header "Content-Type: application/json" \
 ### Get a crate
 
 - **GET** /api/v1/meuse/crate/`<crate_name>`
+- Allowed users: `admin`, `tech`, `read-only`
 
 ---
 

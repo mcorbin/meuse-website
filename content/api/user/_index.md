@@ -9,13 +9,13 @@ disableToc: false
 In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, and it's not possible to create new roles:
 
 - `admin`: An admin can do anything (except creating tokens for another user).
-- `tech`: Some calls are not allowed for tech users. Some parameters are also only usable by an admin account.
+- `tech`: Some calls are not allowed for tech users. Some parameters are also only usable by an admin account. This role should be perfect for a CI user.
+- `read-only`: Read-only users.
 
-## Users
-
-### Create a new user  - Admin only
+### Create a new user
 
 - **POST** /api/v1/meuse/user
+- roles: `admin`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
@@ -23,7 +23,7 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 | description | string | The description of the user. |
 | name    | string | The user name. |
 | password | string | The user password. It should have at least 8 characters. |
-| role    |  string | The user role. Should be `admin` or `tech` |
+| role    |  string | The user role. Should be `admin`, `tech` or `read-only` |
 
 ---
 
@@ -41,13 +41,14 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 An user can update its own accout, but only an `admin` can update another account.
 
 - **POST** /api/v1/meuse/user/`<user_name>`
+- Allowed users: `admin`, `tech`, `read-only`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
 | active    | boolean | Initial status of the user. **Admin only** |
 | description | string | The description of the user. |
 | password | string | The user password. It should have at least 8 characters. |
-| role    |  string | The user role. Should be `admin` or `tech`. **Admin only** |
+| role    |  string | The user role. Should be `admin`, `tech` or `read-only`. **Admin only** |
 
 ---
 
@@ -60,9 +61,10 @@ An user can update its own accout, but only an `admin` can update another accoun
 {"ok":true}
 ```
 
-### Delete an user - Admin only
+### Delete an user
 
 - **DELETE** /api/v1/meuse/user/`<user_name>`
+- Allowed users: `admin`
 
 ---
 
@@ -74,9 +76,10 @@ An user can update its own accout, but only an `admin` can update another accoun
 {"ok":true}
 ```
 
-### List users - Admin only
+### List users
 
 - **GET** /api/v1/meuse/user
+- Allowed users: `admin`
 
 ---
 

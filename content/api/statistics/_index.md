@@ -4,11 +4,12 @@ weight: 35
 disableToc: false
 ---
 
-## Statistics
-
 You can gather some statistics about Meuse with the following call.
 
 - **GET** /api/v1/meuse/statistics
+- Allowed users: `admin`, `tech`, `read-only`
+
+---
 
 ```
 curl --header "Content-Type: application/json" \
@@ -21,5 +22,5 @@ curl --header "Content-Type: application/json" \
   "downloads": 0,
   "users": 1
 }
-
 ```
+

@@ -4,11 +4,10 @@ weight: 1
 disableToc: false
 ---
 
-## Tokens
-
 ### Create a new token
 
 - **POST** /api/v1/meuse/token
+- Allowed users: `admin`, `tech`, `read-only`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
@@ -32,6 +31,7 @@ localhost:8855/api/v1/meuse/token
 Users can delete their own tokens. An `admin` can delete tokens for other users.
 
 - **DELETE** /api/v1/meuse/token
+- Allowed users: `admin`, `tech`, `read-only`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
@@ -52,6 +52,7 @@ localhost:8855/api/v1/meuse/token
 ### List tokens
 
 - **GET** /api/v1/meuse/token
+- Allowed users: `admin`, `tech`, `read-only`
 
 Admin users can pass an `user` parameter in the request url (for example, `/api/v1/meuse/token?user=foo`) to list tokens for a specific user.
 

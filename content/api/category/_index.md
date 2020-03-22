@@ -4,11 +4,10 @@ weight: 15
 disableToc: false
 ---
 
-## Categories
-
-### Create a new category - Admin only
+### Create a new category
 
 - **POST** /api/v1/meuse/category
+- Allowed users: `admin`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
@@ -26,9 +25,10 @@ disableToc: false
 {"ok":true}
 ```
 
-### Update a category - Admin only
+### Update a category
 
 - **GET** /api/v1/meuse/category/`<category_name>`
+- Allowed users: `admin`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
@@ -49,6 +49,7 @@ localhost:8855/api/v1/meuse/category/email
 ### List categories
 
 - **GET** /api/v1/meuse/category
+- Allowed users: `admin`, `tech`, `read-only`
 
 ---
 

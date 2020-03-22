@@ -4,8 +4,6 @@ weight: 30
 disableToc: false
 ---
 
-## Check
-
 Meuse maintains crates states in three places:
 
 - In the PostgreSQL database.
@@ -14,9 +12,10 @@ Meuse maintains crates states in three places:
 
 In some cases, these three places could be out of sync.
 
-Meuse provides an APi call to detect these issues.
+Meuse provides an API call to detect these issues.
 
 - **GET** /api/v1/meuse/check
+- Allowed users: `admin`, `tech`
 
 ---
 
