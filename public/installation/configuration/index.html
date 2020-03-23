@@ -12,20 +12,20 @@
     <title>Configuration :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1584915439" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1584915439" rel="stylesheet">
-    <link href="/css/hybrid.css?1584915439" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1584915439" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1584915439" rel="stylesheet">
-    <link href="/css/auto-complete.css?1584915439" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1584915439" rel="stylesheet">
-    <link href="/css/theme.css?1584915439" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1584915439" rel="stylesheet">
+    <link href="/css/nucleus.css?1585000583" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1585000583" rel="stylesheet">
+    <link href="/css/hybrid.css?1585000583" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1585000583" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1585000583" rel="stylesheet">
+    <link href="/css/auto-complete.css?1585000583" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1585000583" rel="stylesheet">
+    <link href="/css/theme.css?1585000583" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1585000583" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1584915439" rel="stylesheet">
+      <link href="/css/theme-green.css?1585000583" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1584915439"></script>
+    <script src="/js/jquery-3.3.1.min.js?1585000583"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1584915439"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1584915439"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1585000583"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1585000583"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1584915439"></script>
+<script type="text/javascript" src="/js/search.js?1585000583"></script>
 
     
   </div>
@@ -785,9 +785,13 @@ crate:
 # Activates the Meuse frontend
 # The frontend is currently in alpha, and is accessible on the &quot;/front&quot; URL.
 # It allows you to browse crates and categories.
-# Currently, there is not authentication on the frontend (but it's planned).
-frontend: true
+frontend:
 
+  # enable or disable the frontend.
+  enabled: true
+
+  # a random string with 32 characters.
+  secret: &quot;ozeifjrizjrjghtkzifrnbjfkzoejfjz&quot;
 </code></pre>
 
 <h2 id="database-migrations">Database migrations</h2>
@@ -1233,20 +1237,20 @@ VALUES ('f3e6888e-97f9-11e9-ae4e-ef296f05cd17', 'root_user', '$2a$11$PN29HCYWPjc
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1584915439"></script>
-    <script src="/js/perfect-scrollbar.min.js?1584915439"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1584915439"></script>
-    <script src="/js/jquery.sticky.js?1584915439"></script>
-    <script src="/js/featherlight.min.js?1584915439"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1584915439"></script>
-    <script src="/js/highlight.pack.js?1584915439"></script>
+    <script src="/js/clipboard.min.js?1585000583"></script>
+    <script src="/js/perfect-scrollbar.min.js?1585000583"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1585000583"></script>
+    <script src="/js/jquery.sticky.js?1585000583"></script>
+    <script src="/js/featherlight.min.js?1585000583"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1585000583"></script>
+    <script src="/js/highlight.pack.js?1585000583"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1584915439"></script>
-    <script src="/js/learn.js?1584915439"></script>
-    <script src="/js/hugo-learn.js?1584915439"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1585000583"></script>
+    <script src="/js/learn.js?1585000583"></script>
+    <script src="/js/hugo-learn.js?1585000583"></script>
 
-    <link href="/mermaid/mermaid.css?1584915439" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1584915439"></script>
+    <link href="/mermaid/mermaid.css?1585000583" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1585000583"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

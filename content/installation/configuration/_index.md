@@ -88,9 +88,13 @@ crate:
 # Activates the Meuse frontend
 # The frontend is currently in alpha, and is accessible on the "/front" URL.
 # It allows you to browse crates and categories.
-# Currently, there is not authentication on the frontend (but it's planned).
-frontend: true
+frontend:
 
+  # enable or disable the frontend.
+  enabled: true
+
+  # a random string with 32 characters.
+  secret: "ozeifjrizjrjghtkzifrnbjfkzoejfjz"
 ```
 
 ## Database migrations
