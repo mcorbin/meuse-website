@@ -49,7 +49,7 @@ If not, the request is forwarded to `crates.io`. Meuse will download the crate f
 
 ## Replacing crates.io by the mirror.
 
-If you want to **always** target the Meuse mirror instead of `crates.io`, you don't have to specify `registry = "mirror"` for all your crates. You can add in your `~/.cargo/config` file:
+If you want to **always** target the Meuse mirror instead of `crates.io`, you don't have to specify `registry = "mirror"` for all your dependencies. You can add in your `~/.cargo/config` file:
 
 ```
 [source.crates-io]
