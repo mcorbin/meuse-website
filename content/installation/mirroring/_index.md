@@ -47,3 +47,16 @@ If not, the request is forwarded to `crates.io`. Meuse will download the crate f
 ![Cargo mirroring schema](/cargo_mirror1.jpg)
 
 
+## Replacing crates.io by the mirror.
+
+If you want to **always** target the Meuse mirror instead of `crates.io`, you don't have to specify `registry = "mirror"` for all your crates. You can add in your `~/.cargo/config` file:
+
+```
+[source.crates-io]
+replace-with = 'mirror'
+
+[source.mirror]
+registry = "https://github.com/mcorbin/crates.io-index"
+```
+
+With this configuration, Cargo will automatically download crates from the Meuse mirror instead of crates.io
