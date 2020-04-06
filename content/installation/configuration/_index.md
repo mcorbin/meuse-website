@@ -90,10 +90,14 @@ crate:
 # It allows you to browse crates and categories.
 frontend:
 
-  # enable or disable the frontend.
+  # Enable or disable the frontend.
   enabled: true
 
-  # a random string with 32 characters.
+  # Set to true to disable frontend authentication.
+  # Default to false
+  public: false
+
+  # A random string with 32 characters.
   secret: "ozeifjrizjrjghtkzifrnbjfkzoejfjz"
 ```
 
