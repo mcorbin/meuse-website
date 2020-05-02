@@ -6,7 +6,8 @@ disableToc: false
 
 ## Configure Meuse
 
-Meuse is configured through a YAML file. Meuse uses [yummy](https://github.com/exoscale/yummy) to load the YAML file. This library supports custom tag parsers for a lot of use cases (like reading environment variables for example). +
+Meuse is configured through a YAML file. Meuse uses [yummy](https://github.com/exoscale/yummy) to load the YAML file. This library supports custom tag parsers for a lot of use cases (like reading environment variables for example).
+
 The list of available parsers can be found in the yummy [README](https://github.com/exoscale/yummy#additional-yaml-tags).
 
 Here is a commented example of a Meuse configuration:
