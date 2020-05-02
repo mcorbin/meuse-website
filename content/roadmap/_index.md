@@ -4,7 +4,7 @@ weight: 10
 disableToc: false
 ---
 
-## Roadmap (22/03/2020)
+## Roadmap (02/05/2020)
 
 This is what I plan to do:
 

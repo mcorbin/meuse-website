@@ -12,20 +12,20 @@
     <title>Configuration :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1588324569" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1588324569" rel="stylesheet">
-    <link href="/css/hybrid.css?1588324569" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1588324569" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1588324569" rel="stylesheet">
-    <link href="/css/auto-complete.css?1588324569" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1588324569" rel="stylesheet">
-    <link href="/css/theme.css?1588324569" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1588324569" rel="stylesheet">
+    <link href="/css/nucleus.css?1588421457" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1588421457" rel="stylesheet">
+    <link href="/css/hybrid.css?1588421457" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1588421457" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1588421457" rel="stylesheet">
+    <link href="/css/auto-complete.css?1588421457" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1588421457" rel="stylesheet">
+    <link href="/css/theme.css?1588421457" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1588421457" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1588324569" rel="stylesheet">
+      <link href="/css/theme-green.css?1588421457" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1588324569"></script>
+    <script src="/js/jquery-3.3.1.min.js?1588421457"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1588324569"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1588324569"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1588421457"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1588421457"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1588324569"></script>
+<script type="text/javascript" src="/js/search.js?1588421457"></script>
 
     
   </div>
@@ -704,7 +704,10 @@
 
 <h2 id="configure-meuse">Configure Meuse</h2>
 
-<p>Meuse is configured through a YAML file. Here is a commented example of a Meuse configuration:</p>
+<p>Meuse is configured through a YAML file. Meuse uses <a href="https://github.com/exoscale/yummy">yummy</a> to load the YAML file. This library supports custom tag parsers for a lot of use cases (like reading environment variables for example). +
+The list of available parsers can be found in the yummy <a href="https://github.com/exoscale/yummy#additional-yaml-tags">README</a>.</p>
+
+<p>Here is a commented example of a Meuse configuration:</p>
 
 <pre><code class="language-yaml"># The PostgreSQL database configuration
 database:
@@ -751,6 +754,15 @@ logging:
 
 # The configuration of your Git index
 metadata:
+
+  # Meuse supports multiple ways of managing the crate index
+  # containing the crate metadata.
+  # Only one should be configured.
+
+  #### shell-out to the git command
+  #### Meuse will shell-out to the git command to manage the index.
+
+  type: &quot;shell&quot;
   # The local path of your Git index
   path: &quot;/home/mathieu/prog/rust/testregistry&quot;
   # The branch which will contain the metadata files
@@ -758,9 +770,24 @@ metadata:
   # The URL of your Git index.
   url: &quot;https://github.com/mcorbin/testregistry&quot;
 
+  #### JGit: Meuse will use a Java implementation of Git.
+  #### The Git command is not needed
+
+  type: &quot;jgit&quot;
+  # The local path of your Git index
+  path: &quot;/home/mathieu/prog/rust/testregistry&quot;
+  # The branch which will contain the metadata files
+  target: &quot;origin/master&quot;
+  # Your Git username
+  username: &quot;my-git-username&quot;
+  # Your Git password. If you use Github, the password can also be
+  # a Github Access Token
+  password: &quot;my-git-password&quot;
+
 # The crate binary files configuration
 crate:
   # Meuse supports multiple backends for crate files.
+  # Only one should be configured.
 
   #### filesystem backend:
 
@@ -1241,20 +1268,20 @@ VALUES ('f3e6888e-97f9-11e9-ae4e-ef296f05cd17', 'root_user', '$2a$11$PN29HCYWPjc
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1588324569"></script>
-    <script src="/js/perfect-scrollbar.min.js?1588324569"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1588324569"></script>
-    <script src="/js/jquery.sticky.js?1588324569"></script>
-    <script src="/js/featherlight.min.js?1588324569"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1588324569"></script>
-    <script src="/js/highlight.pack.js?1588324569"></script>
+    <script src="/js/clipboard.min.js?1588421457"></script>
+    <script src="/js/perfect-scrollbar.min.js?1588421457"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1588421457"></script>
+    <script src="/js/jquery.sticky.js?1588421457"></script>
+    <script src="/js/featherlight.min.js?1588421457"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1588421457"></script>
+    <script src="/js/highlight.pack.js?1588421457"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1588324569"></script>
-    <script src="/js/learn.js?1588324569"></script>
-    <script src="/js/hugo-learn.js?1588324569"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1588421457"></script>
+    <script src="/js/learn.js?1588421457"></script>
+    <script src="/js/hugo-learn.js?1588421457"></script>
 
-    <link href="/mermaid/mermaid.css?1588324569" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1588324569"></script>
+    <link href="/mermaid/mermaid.css?1588421457" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1588421457"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

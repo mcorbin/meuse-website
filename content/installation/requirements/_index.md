@@ -20,4 +20,14 @@ Meuse is written in [Clojure](https://clojure.org/), you will then need Java on 
 
 As described in the Rust [registries documentation](https://doc.rust-lang.org/nightly/cargo/reference/registries.html), the crates metadata are stored in a Git repository.
 
-This repository and the `git` command should be available in the machine running Meuse. The Meuse user should also be allowed to run git commands (push for example). You should for example add your SSH key in the SSH agent.
+Meuse has two ways of managing the index: by shelling-out to the `git` command, or by using `JGit`, a git implementation in Java.
+
+How to configure the crate index in Meuse is explained in the [Configuration](/installation/configuration) section of the documentation.
+
+### shell-out to git
+
+The index repository and the `git` command should be available in the machine running Meuse. The Meuse user should also be allowed to run git commands (push for example). You should for example add your SSH key in the SSH agent.
+
+### JGit
+
+The index repository should be available in the machine running Meuse. The `git` command is not needed.

@@ -6,7 +6,10 @@ disableToc: false
 
 ## Configure Meuse
 
-Meuse is configured through a YAML file. Here is a commented example of a Meuse configuration:
+Meuse is configured through a YAML file. Meuse uses [yummy](https://github.com/exoscale/yummy) to load the YAML file. This library supports custom tag parsers for a lot of use cases (like reading environment variables for example). +
+The list of available parsers can be found in the yummy [README](https://github.com/exoscale/yummy#additional-yaml-tags).
+
+Here is a commented example of a Meuse configuration:
 
 ```yaml
 # The PostgreSQL database configuration
@@ -54,6 +57,15 @@ logging:
 
 # The configuration of your Git index
 metadata:
+
+  # Meuse supports multiple ways of managing the crate index
+  # containing the crate metadata.
+  # Only one should be configured.
+
+  #### shell-out to the git command
+  #### Meuse will shell-out to the git command to manage the index.
+
+  type: "shell"
   # The local path of your Git index
   path: "/home/mathieu/prog/rust/testregistry"
   # The branch which will contain the metadata files
@@ -61,9 +73,24 @@ metadata:
   # The URL of your Git index.
   url: "https://github.com/mcorbin/testregistry"
 
+  #### JGit: Meuse will use a Java implementation of Git.
+  #### The Git command is not needed
+
+  type: "jgit"
+  # The local path of your Git index
+  path: "/home/mathieu/prog/rust/testregistry"
+  # The branch which will contain the metadata files
+  target: "origin/master"
+  # Your Git username
+  username: "my-git-username"
+  # Your Git password. If you use Github, the password can also be
+  # a Github Access Token
+  password: "my-git-password"
+
 # The crate binary files configuration
 crate:
   # Meuse supports multiple backends for crate files.
+  # Only one should be configured.
 
   #### filesystem backend:
 
