@@ -8,8 +8,6 @@ disableToc: false
 
 Meuse uses PostgreSQL. I run the tests using the version `11.4`, but Meuse may work with older versions.
 
-Then, you should initialize the database with the SQL script available [on github](https://github.com/mcorbin/meuse/blob/master/dev/resources/sql/schema.sql).
-
 You can also run the [postgres.sh](https://github.com/mcorbin/meuse/blob/master/postgres.sh) which will launch a PostgreSQL Docker container. Of course, don't use that in production ;)
 
 ## Java
