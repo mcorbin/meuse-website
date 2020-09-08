@@ -33,7 +33,8 @@ database:
   ssl-mode: "verify-ca"
   # optional: connection pool size (default is 2)
   max-pool-size: 3
-
+  # optional: the PostgreSQL schema to used
+  schema: myschema
 # The HTTP server configuration
 http:
   # the IP address of the HTTP server

@@ -69,7 +69,8 @@ curl --header "Content-Type: application/json" \
       "id": "b2978e5f-c312-4389-98eb-932ab1785265",
       "name": "test_token",
       "created-at": "2019-07-30T20:17:34Z",
-      "expired-at": "2019-08-09T20:17:34Z"
+      "expired-at": "2019-08-09T20:17:34Z",
+      "last-used-at":"2020-09-08T21:27:12Z"
     }
   ]
 }
