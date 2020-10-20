@@ -15,7 +15,7 @@ In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, a
 ### Create a new user
 
 - **POST** /api/v1/meuse/user
-- roles: `admin`
+- Allowed users: `admin`
 
 | Field | Type | Description |
 | ------ | ----------- | ----------- |
