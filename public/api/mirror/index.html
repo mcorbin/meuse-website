@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>User and role :: Meuse, a free private Rust Registry</title>
+    <title>Mirror :: Meuse, a free private Rust Registry</title>
 
     
     <link href="/css/nucleus.css?1603314006" rel="stylesheet">
@@ -39,7 +39,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/api/user/">
+  <body class="" data-url="/api/mirror/">
     <nav id="sidebar" class="">
 
 
@@ -359,8 +359,8 @@
   
     
     <li data-nav-id="/api/user/" title="User and role" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/api/user/">
@@ -431,8 +431,8 @@
   
     
     <li data-nav-id="/api/mirror/" title="Mirror" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/api/mirror/">
@@ -671,7 +671,7 @@
             
           
           
-            <a href='/'></a> > <a href='/api/'>API</a> > User and role
+            <a href='/'></a> > <a href='/api/'>API</a> > Mirror
           
          
           
@@ -688,12 +688,9 @@
 <ul>
 <li>
 <ul>
-<li><a href="#roles">Roles</a>
+<li>
 <ul>
-<li><a href="#create-a-new-user">Create a new user</a></li>
-<li><a href="#update-an-user">Update an user</a></li>
-<li><a href="#delete-an-user">Delete an user</a></li>
-<li><a href="#list-users">List users</a></li>
+<li><a href="#cache-crates">Cache crates</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -713,7 +710,7 @@
           
             <h1>
               
-              User and role
+              Mirror
             </h1>
           
 
@@ -724,170 +721,24 @@
 
 	
 
-<h2 id="roles">Roles</h2>
+<p>As explained in the <a href="/installation/mirroring/">Mirroring</a> section, Meuse can be used as a mirror for crates.io.</p>
 
-<p>In Meuse, an user one (and only one) role assigned to it. Only 2 roles exists, and it&rsquo;s not possible to create new roles:</p>
+<h3 id="cache-crates">Cache crates</h3>
 
-<ul>
-<li><code>admin</code>: An admin can do anything (except creating tokens for another user).</li>
-<li><code>tech</code>: Some calls are not allowed for tech users. Some parameters are also only usable by an admin account. This role should be perfect for a CI user.</li>
-<li><code>read-only</code>: Read-only users.</li>
-</ul>
+<p>When Meuse receives a request to download a crate from crates.io, it will automatically cache it in its local (or remote, if you use the S3 backend) store.</p>
 
-<h3 id="create-a-new-user">Create a new user</h3>
+<p>You can use the <code>cache</code> endpoint to prefill this store. When this API call is executed, Meuse will download the crate from crates.io and cache it. If the crate is already cached, the crate will not be downloaded again.</p>
 
 <ul>
-<li><strong>POST</strong> /api/v1/meuse/user</li>
-<li>Allowed users: <code>admin</code></li>
+<li><strong>POST</strong> /api/v1/mirror/<code>&lt;crate_name&gt;</code>/<code>&lt;crate_version&gt;</code>/cache</li>
+<li>Allowed users: <code>admin</code>, <code>tech</code></li>
 </ul>
-
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>active</td>
-<td>boolean</td>
-<td>Initial status of the user.</td>
-</tr>
-
-<tr>
-<td>description</td>
-<td>string</td>
-<td>The description of the user.</td>
-</tr>
-
-<tr>
-<td>name</td>
-<td>string</td>
-<td>The user name.</td>
-</tr>
-
-<tr>
-<td>password</td>
-<td>string</td>
-<td>The user password. It should have at least 8 characters.</td>
-</tr>
-
-<tr>
-<td>role</td>
-<td>string</td>
-<td>The user role. Should be <code>admin</code>, <code>tech</code> or <code>read-only</code></td>
-</tr>
-</tbody>
-</table>
 
 <hr />
 
-<pre><code> curl --header &quot;Content-Type: application/json&quot; --request POST \
--H &quot;Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=&quot; \
---data '{&quot;active&quot;:true,&quot;description&quot;:&quot;new user&quot;,&quot;name&quot;:&quot;newuser&quot;,&quot;password&quot;:&quot;securepassword&quot;,&quot;role&quot;:&quot;tech&quot;}' \
- localhost:8855/api/v1/meuse/user
+<pre><code>curl -X POST --header &quot;Content-Type: application/json&quot; -H &quot;Authorization: AhbDTCr2RHUGoUnl5ArGWl06W+UVD36hPiL2502oCpOFU/rZpPkwE7aykIpxP8Y4GDY=&quot;  localhost:8855/api/v1/mirror/log/0.4.11/cache
 
 {&quot;ok&quot;:true}
-</code></pre>
-
-<h3 id="update-an-user">Update an user</h3>
-
-<p>An user can update its own accout, but only an <code>admin</code> can update another account.</p>
-
-<ul>
-<li><strong>POST</strong> /api/v1/meuse/user/<code>&lt;user_name&gt;</code></li>
-<li>Allowed users: <code>admin</code>, <code>tech</code>, <code>read-only</code></li>
-</ul>
-
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>active</td>
-<td>boolean</td>
-<td>Initial status of the user. <strong>Admin only</strong></td>
-</tr>
-
-<tr>
-<td>description</td>
-<td>string</td>
-<td>The description of the user.</td>
-</tr>
-
-<tr>
-<td>password</td>
-<td>string</td>
-<td>The user password. It should have at least 8 characters.</td>
-</tr>
-
-<tr>
-<td>role</td>
-<td>string</td>
-<td>The user role. Should be <code>admin</code>, <code>tech</code> or <code>read-only</code>. <strong>Admin only</strong></td>
-</tr>
-</tbody>
-</table>
-
-<hr />
-
-<pre><code> curl --header &quot;Content-Type: application/json&quot; --request POST \
--H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
---data '{&quot;description&quot;:&quot;updated user&quot;,&quot;password&quot;:&quot;securepassword&quot;}' \
- localhost:8855/api/v1/meuse/user/root_user
-
-{&quot;ok&quot;:true}
-</code></pre>
-
-<h3 id="delete-an-user">Delete an user</h3>
-
-<ul>
-<li><strong>DELETE</strong> /api/v1/meuse/user/<code>&lt;user_name&gt;</code></li>
-<li>Allowed users: <code>admin</code></li>
-</ul>
-
-<hr />
-
-<pre><code> curl --header &quot;Content-Type: application/json&quot; --request DELETE \
--H &quot;Authorization: HhqLVFVvTzi+sY0ewvjnVwWnbPmdTOTOZoDJniBVDoJoDWxxU1tvqa0sASWGGorMjJY=&quot; \
- localhost:8855/api/v1/meuse/user/newuser
-
-{&quot;ok&quot;:true}
-</code></pre>
-
-<h3 id="list-users">List users</h3>
-
-<ul>
-<li><strong>GET</strong> /api/v1/meuse/user</li>
-<li>Allowed users: <code>admin</code></li>
-</ul>
-
-<hr />
-
-<pre><code> curl --header &quot;Content-Type: application/json&quot; \
--H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
- localhost:8855/api/v1/meuse/user
-
-{
-  &quot;users&quot;: [
-    {
-      &quot;id&quot;: &quot;f3e6888e-97f9-11e9-ae4e-ef296f05cd17&quot;,
-      &quot;name&quot;: &quot;root_user&quot;,
-      &quot;description&quot;: &quot;updated user&quot;,
-      &quot;active&quot;: true,
-      &quot;role&quot;: &quot;admin&quot;
-    }
-  ]
-}
 </code></pre>
 
 
@@ -1113,26 +964,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
                 
                 
 
@@ -1180,6 +1011,26 @@
             
             
                 
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
                     
                 
                 
@@ -1286,10 +1137,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/api/crate/" title="Crate"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/api/check/" title="Check"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/api/category/" title="Category" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/api/statistics/" title="Statistics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
