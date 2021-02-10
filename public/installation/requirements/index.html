@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Requirements :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1603314006" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603314006" rel="stylesheet">
-    <link href="/css/hybrid.css?1603314006" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603314006" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603314006" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603314006" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603314006" rel="stylesheet">
-    <link href="/css/theme.css?1603314006" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603314006" rel="stylesheet">
+    <link href="/css/nucleus.css?1612994371" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612994371" rel="stylesheet">
+    <link href="/css/hybrid.css?1612994371" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612994371" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612994371" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612994371" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612994371" rel="stylesheet">
+    <link href="/css/theme.css?1612994371" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612994371" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1603314006" rel="stylesheet">
+      <link href="/css/theme-green.css?1612994371" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603314006"></script>
+    <script src="/js/jquery-3.3.1.min.js?1612994371"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603314006"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603314006"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1612994371"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612994371"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603314006"></script>
+<script type="text/javascript" src="/js/search.js?1612994371"></script>
 
     
   </div>
@@ -685,18 +685,16 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#postgresql">PostgreSQL</a></li>
-<li><a href="#java">Java</a></li>
-<li><a href="#crate-index">Crate index</a>
-<ul>
-<li><a href="#shell-out-to-git">shell-out to git</a></li>
-<li><a href="#jgit">JGit</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#postgresql">PostgreSQL</a></li>
+    <li><a href="#java">Java</a></li>
+    <li><a href="#crate-index">Crate index</a>
+      <ul>
+        <li><a href="#shell-out-to-git">shell-out to git</a></li>
+        <li><a href="#jgit">JGit</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -722,32 +720,18 @@
 
 
 
-	
-
-<h2 id="postgresql">PostgreSQL</h2>
-
+	<h2 id="postgresql">PostgreSQL</h2>
 <p>Meuse uses PostgreSQL. I run the tests using the version <code>11.4</code>, but Meuse may work with older versions.</p>
-
 <p>You can also run the <a href="https://github.com/mcorbin/meuse/blob/master/postgres.sh">postgres.sh</a> which will launch a PostgreSQL Docker container. Of course, don&rsquo;t use that in production ;)</p>
-
 <h2 id="java">Java</h2>
-
 <p>Meuse is written in <a href="https://clojure.org/">Clojure</a>, you will then need Java on your computer/server to be able to run the jar. I develop Meuse/do all my tests using <code>OpenJDK 11</code>.</p>
-
 <h2 id="crate-index">Crate index</h2>
-
 <p>As described in the Rust <a href="https://doc.rust-lang.org/nightly/cargo/reference/registries.html">registries documentation</a>, the crates metadata are stored in a Git repository.</p>
-
 <p>Meuse has two ways of managing the index: by shelling-out to the <code>git</code> command, or by using <code>JGit</code>, a git implementation in Java.</p>
-
 <p>How to configure the crate index in Meuse is explained in the <a href="/installation/configuration">Configuration</a> section of the documentation.</p>
-
 <h3 id="shell-out-to-git">shell-out to git</h3>
-
 <p>The index repository and the <code>git</code> command should be available in the machine running Meuse. The Meuse user should also be allowed to run git commands (push for example). You should for example add your SSH key in the SSH agent.</p>
-
 <h3 id="jgit">JGit</h3>
-
 <p>The index repository should be available in the machine running Meuse. The <code>git</code> command is not needed.</p>
 
 
@@ -1153,20 +1137,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603314006"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603314006"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603314006"></script>
-    <script src="/js/jquery.sticky.js?1603314006"></script>
-    <script src="/js/featherlight.min.js?1603314006"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1603314006"></script>
-    <script src="/js/highlight.pack.js?1603314006"></script>
+    <script src="/js/clipboard.min.js?1612994371"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612994371"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612994371"></script>
+    <script src="/js/jquery.sticky.js?1612994371"></script>
+    <script src="/js/featherlight.min.js?1612994371"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1612994371"></script>
+    <script src="/js/highlight.pack.js?1612994371"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603314006"></script>
-    <script src="/js/learn.js?1603314006"></script>
-    <script src="/js/hugo-learn.js?1603314006"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612994371"></script>
+    <script src="/js/learn.js?1612994371"></script>
+    <script src="/js/hugo-learn.js?1612994371"></script>
 
-    <link href="/mermaid/mermaid.css?1603314006" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603314006"></script>
+    <link href="/mermaid/mermaid.css?1612994371" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612994371"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

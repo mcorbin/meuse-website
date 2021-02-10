@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="Hugo 0.56.2" />
+    <meta name="generator" content="Hugo 0.80.0" />
     <meta name="description" content="">
 
 
@@ -12,20 +12,20 @@
     <title>Crate :: Meuse, a free private Rust Registry</title>
 
     
-    <link href="/css/nucleus.css?1603314006" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1603314006" rel="stylesheet">
-    <link href="/css/hybrid.css?1603314006" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1603314006" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1603314006" rel="stylesheet">
-    <link href="/css/auto-complete.css?1603314006" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1603314006" rel="stylesheet">
-    <link href="/css/theme.css?1603314006" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1603314006" rel="stylesheet">
+    <link href="/css/nucleus.css?1612994371" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1612994371" rel="stylesheet">
+    <link href="/css/hybrid.css?1612994371" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1612994371" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1612994371" rel="stylesheet">
+    <link href="/css/auto-complete.css?1612994371" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1612994371" rel="stylesheet">
+    <link href="/css/theme.css?1612994371" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1612994371" rel="stylesheet">
     
-      <link href="/css/theme-green.css?1603314006" rel="stylesheet">
+      <link href="/css/theme-green.css?1612994371" rel="stylesheet">
     
 
-    <script src="/js/jquery-3.3.1.min.js?1603314006"></script>
+    <script src="/js/jquery-3.3.1.min.js?1612994371"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -58,14 +58,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1603314006"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1603314006"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1612994371"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1612994371"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/meuse.mcorbin.fr";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1603314006"></script>
+<script type="text/javascript" src="/js/search.js?1612994371"></script>
 
     
   </div>
@@ -685,16 +685,14 @@
                     <div class="progress">
     <div class="wrapper">
 <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#list-crates">List crates</a></li>
-<li><a href="#get-a-crate">Get a crate</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#list-crates">List crates</a></li>
+        <li><a href="#get-a-crate">Get a crate</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
     </div>
 </div>
@@ -720,19 +718,13 @@
 
 
 
-	
-
-<h3 id="list-crates">List crates</h3>
-
+	<h3 id="list-crates">List crates</h3>
 <ul>
 <li><strong>GET</strong> /api/v1/meuse/crate</li>
 <li>Allowed users: <code>admin</code>, <code>tech</code>, <code>read-only</code></li>
 </ul>
-
 <p>An optional <code>category</code> can be passed in the url (for example <code>/api/v1/meuse/crate?category=system</code>) to return only crates which belong to a category.</p>
-
-<hr />
-
+<hr>
 <pre><code>curl --header &quot;Content-Type: application/json&quot; \
 -H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
  localhost:8855/api/v1/meuse/crate
@@ -755,17 +747,12 @@
     }
   ]
 }
-</code></pre>
-
-<h3 id="get-a-crate">Get a crate</h3>
-
+</code></pre><h3 id="get-a-crate">Get a crate</h3>
 <ul>
 <li><strong>GET</strong> /api/v1/meuse/crate/<code>&lt;crate_name&gt;</code></li>
 <li>Allowed users: <code>admin</code>, <code>tech</code>, <code>read-only</code></li>
 </ul>
-
-<hr />
-
+<hr>
 <pre><code>curl --header &quot;Content-Type: application/json&quot; \
 -H &quot;Authorization: Y1B5TGx6Fevkfc/soqX2JsSh4lrME2kHy/+s10pMnT2lCaFaOF4MD9Dnso0x77rEgYY=&quot; \
 localhost:8855/api/v1/meuse/crate/test1
@@ -800,7 +787,6 @@ localhost:8855/api/v1/meuse/crate/test1
   ]
 }
 </code></pre>
-
 
 
 
@@ -1210,20 +1196,20 @@ localhost:8855/api/v1/meuse/crate/test1
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1603314006"></script>
-    <script src="/js/perfect-scrollbar.min.js?1603314006"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1603314006"></script>
-    <script src="/js/jquery.sticky.js?1603314006"></script>
-    <script src="/js/featherlight.min.js?1603314006"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1603314006"></script>
-    <script src="/js/highlight.pack.js?1603314006"></script>
+    <script src="/js/clipboard.min.js?1612994371"></script>
+    <script src="/js/perfect-scrollbar.min.js?1612994371"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1612994371"></script>
+    <script src="/js/jquery.sticky.js?1612994371"></script>
+    <script src="/js/featherlight.min.js?1612994371"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1612994371"></script>
+    <script src="/js/highlight.pack.js?1612994371"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1603314006"></script>
-    <script src="/js/learn.js?1603314006"></script>
-    <script src="/js/hugo-learn.js?1603314006"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1612994371"></script>
+    <script src="/js/learn.js?1612994371"></script>
+    <script src="/js/hugo-learn.js?1612994371"></script>
 
-    <link href="/mermaid/mermaid.css?1603314006" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1603314006"></script>
+    <link href="/mermaid/mermaid.css?1612994371" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1612994371"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

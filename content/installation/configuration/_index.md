@@ -10,6 +10,8 @@ Meuse is configured through a YAML file. Meuse uses [yummy](https://github.com/e
 
 The list of available parsers can be found in the yummy [README](https://github.com/exoscale/yummy#additional-yaml-tags).
 
+Secrets can be loaded using the special `!secret` or `!envsecret` (to read a secret from an environment variable) tags. These tags will indicate to Meuse that the value is a secret and extra security measures will be added to the variable.
+
 Here is a commented example of a Meuse configuration:
 
 ```yaml
@@ -18,7 +20,7 @@ database:
   # The database user
   user: "meuse"
   # The database password
-  password: "meuse"
+  password: !secret "meuse"
   # The database host
   host: "127.0.0.1"
   # The database port
@@ -87,7 +89,7 @@ metadata:
   username: "my-git-username"
   # Your Git password. If you use Github, the password can also be
   # a Github Access Token
-  password: "my-git-password"
+  password: !secret "my-git-password"
 
 # The crate binary files configuration
 crate:
@@ -105,8 +107,8 @@ crate:
   store: s3
 
   # s3 credentials
-  access-key: your-access-key
-  secret-key: your-secret-key
+  access-key: !secret your-access-key
+  secret-key: !secret your-secret-key
 
   # s3 endpoint
   endpoint: s3-endpoint
@@ -127,7 +129,7 @@ frontend:
   public: false
 
   # A random string with 32 characters.
-  secret: "ozeifjrizjrjghtkzifrnbjfkzoejfjz"
+  secret: !secret "ozeifjrizjrjghtkzifrnbjfkzoejfjz"
 ```
 
 ## Database migrations
