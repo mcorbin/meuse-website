@@ -54,7 +54,8 @@ http:
 # https://github.com/pyr/unilog/
 logging:
   level: debug
-  console: true
+  console:
+    encoder: json
   overrides:
     org.apache.http: error
     io.netty.buffer.PoolThreadCache: error
