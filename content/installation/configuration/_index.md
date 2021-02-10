@@ -57,8 +57,15 @@ logging:
   console:
     encoder: json
   overrides:
+    org.eclipse.jetty: info
+    com.zaxxer.hikari.pool.HikariPool: info
     org.apache.http: error
     io.netty.buffer.PoolThreadCache: error
+    org.eclipse.jgit.internal.storage.file.FileSnapshot: info
+    com.amazonaws.auth.AWS4Signer: warn
+    com.amazonaws.retry.ClockSkewAdjuster: warn
+    com.amazonaws.request: warn
+    com.amazonaws.requestId: warn
 
 # The configuration of your Git index
 metadata:
